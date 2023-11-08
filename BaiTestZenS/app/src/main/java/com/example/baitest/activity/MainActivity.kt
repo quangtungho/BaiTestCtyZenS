@@ -12,8 +12,12 @@ import com.example.baitest.R
 import com.example.baitest.adapter.JokesAdapter
 
 
+/**
+ * ================================================
+ * Created by HOQUANGTUNG on 2023
+ * ================================================
+ */
 class MainActivity : ComponentActivity() {
-    //khai bao
     private lateinit var jokesAdapter: JokesAdapter
     private var lnButtonLike: LinearLayout? = null
     private var lnButtonDisLike: LinearLayout? = null
@@ -23,21 +27,30 @@ class MainActivity : ComponentActivity() {
     private val listJokes = ArrayList<DataJokes>()
     private var positionLike = 0
     private var positionDisLike = 0
+   // private var mDb: JokesDatabase? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_main)
+        //mDb = JokesDatabase.getInMemoryDatabase(applicationContext)
         mapping()
         jokesList()
-
         //onClickButtonLike
         lnButtonLike!!.setOnClickListener {
-
             buttonLike()
         }
         //onClickButtonDisLike
         lnButtonDisLike!!.setOnClickListener {
             buttonDisLike()
         }
+    }
+
+    private fun mapping() {
+        lnButtonLike = findViewById(R.id.lnButtonLike)
+        lnButtonDisLike = findViewById(R.id.lnButtonDisLike)
+        lvContent = findViewById(R.id.lvNoiDung)
+        tvNotify = findViewById(R.id.tvNotify)
+        lnButton = findViewById(R.id.lnButton)
     }
 
     //Gan data
@@ -72,20 +85,16 @@ class MainActivity : ComponentActivity() {
         lvContent!!.adapter = jokesAdapter
     }
 
-    private fun mapping() {
-        lnButtonLike = findViewById(R.id.lnButtonLike)
-        lnButtonDisLike = findViewById(R.id.lnButtonDisLike)
-        lvContent = findViewById(R.id.lvNoiDung)
-        tvNotify = findViewById(R.id.tvNotify)
-        lnButton = findViewById(R.id.lnButton)
-    }
-
     //xu ly nut like
     private fun buttonLike() {
         if (listJokes.size > 1) {
             listJokes.removeAt(positionLike)
             jokesAdapter.notifyDataSetChanged()
-            Toast.makeText(this, getString(R.string.like), Toast.LENGTH_SHORT).show()
+            val dataJokes = DataJokes()
+            dataJokes.jokesId = 1
+            //mDb!!.jokesDao()?.insertJokes(dataJokes)
+          //  Toast.makeText(this, getString(R.string.like), Toast.LENGTH_SHORT).show()
+
         } else {
             tvNotify!!.visibility = View.VISIBLE
             lnButton!!.visibility = View.GONE
@@ -95,12 +104,14 @@ class MainActivity : ComponentActivity() {
 
     }
 
-
     //xu ly nut dislike
     private fun buttonDisLike() {
         if (listJokes.size > 1) {
             listJokes.removeAt(positionDisLike)
             jokesAdapter.notifyDataSetChanged()
+            val dataJokes = DataJokes()
+            dataJokes.jokesId = 2
+           // mDb!!.jokesDao()?.insertJokes(dataJokes)
             Toast.makeText(this, getString(R.string.dis_like), Toast.LENGTH_SHORT).show()
         } else {
             tvNotify!!.visibility = View.VISIBLE
