@@ -11,4 +11,9 @@
     <string name="content_9">Copyright 2021 HLS</string>
     <string name="title_activity_bai_test_zen_s">BaiTestZenS</string>
     <string name="no_name">no_name</string>
+    <string name="like">Like</string>
+    <string name="dis_like">DisLike</string>
+    <string name="no_content">That\'s all the jokes for today! Come back another day!</string>
+    <string name="title_activity_jokee_single_serving">JokeeSingleServingActivity</string>
+
 </resources>

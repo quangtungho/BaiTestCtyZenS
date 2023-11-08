@@ -33,7 +33,7 @@
                         android:layout_width="@dimen/dp_48"
                         android:layout_height="@dimen/dp_48"
                         android:contentDescription="@string/no_name"
-                        android:src="@drawable/logo" />
+                        android:src="@drawable/logohl" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -68,8 +68,8 @@
                         </LinearLayout>
 
                         <androidx.cardview.widget.CardView
-                            android:layout_width="@dimen/dp_32"
-                            android:layout_height="@dimen/dp_32"
+                            android:layout_width="@dimen/dp_40"
+                            android:layout_height="@dimen/dp_40"
                             android:layout_gravity="center"
                             app:cardCornerRadius="@dimen/dp_48">
 
@@ -77,6 +77,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:contentDescription="@string/no_name"
+                                android:scaleType="centerCrop"
                                 android:src="@drawable/avatar" />
                         </androidx.cardview.widget.CardView>
 
@@ -117,36 +118,45 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:paddingHorizontal="@dimen/dp_24"
-                android:paddingVertical="@dimen/dp_48">
+                android:paddingVertical="@dimen/dp_56">
+
+                <ListView
+                    android:id="@+id/lvNoiDung"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tvNotify"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/content_5"
-                    android:textColor="#727272"
-                    android:textSize="@dimen/sp_14"
-                    android:textStyle="normal" />
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/no_content"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/lnButton"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/dp_56"
                 android:gravity="center">
 
                 <LinearLayout
+                    android:id="@+id/lnButtonLike"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#2C7EDB"
                     android:gravity="center"
-                    android:padding="@dimen/dp_4">
+                    android:padding="@dimen/dp_8">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingHorizontal="@dimen/dp_12"
+                        android:paddingHorizontal="@dimen/dp_4"
                         android:text="@string/content_6"
                         android:textColor="@color/white"
                         android:textSize="@dimen/sp_12"
@@ -154,12 +164,13 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/lnButtonDisLike"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dp_24"
+                    android:layout_marginStart="@dimen/dp_32"
                     android:background="#29B363"
                     android:gravity="center"
-                    android:padding="@dimen/dp_4">
+                    android:padding="@dimen/dp_8">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -175,7 +186,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="@dimen/dp_56"
                 android:background="#EBEBEB" />
 
             <LinearLayout
