@@ -1,0 +1,27 @@
+let arr = [1, 2, 3, 4, 5];
+
+const miniMaxSum = (array) => {
+  // tổng full cả mảng
+  let sum = 0;
+
+  // tìm thằng nhỏ nhất trong mảng
+  const min = Math.min(...array);
+
+  // tìm thằng lớn nhất trong mảng
+  const max = Math.max(...array);
+
+  for (let i = 0; i < array.length; i++) {
+    // 1 + 2 + 3 + 4 + 5
+    sum += array[i];
+  }
+
+  // tổng 4 số nhỏ nhất
+  const minSum = sum - max;
+
+  // tổng 4 số lớn nhất
+  const maxSum = sum - min;
+
+  return [minSum, maxSum];
+};
+
+console.log(miniMaxSum(arr));
